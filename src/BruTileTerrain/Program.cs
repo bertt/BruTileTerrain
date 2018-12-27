@@ -30,6 +30,12 @@ namespace BruTileTerrain
             var tilesTerrain = GetTiles(terrainTileSource, zoomLevel, extent);
             PrintTiles("Terrain", terrainTileSource, tilesTerrain);
 
+            // Sample: request Mapbox vector tiles
+            var osmVectorTileSource = new HttpTileSource(osmSchema, "https://maps.tilehosting.com/data/v3/{z}/{x}/{y}.pbf?key=hWWfWrAiWGtv68r8wA6D");
+            var vectorTilesOsm = GetOSMTiles(osmVectorTileSource, extent, zoomLevel);
+            PrintTiles("Vector tiles OSM", osmVectorTileSource, vectorTilesOsm);
+
+            Console.WriteLine("press any key to continue...");
             Console.ReadKey();
         }
 
